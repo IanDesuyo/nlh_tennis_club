@@ -9,10 +9,19 @@
 
   <p><a href="/">HOME</a></p>
 
-  <h1>Members</h1>
+  <h1>Members (Adult)</h1>
   
   <ul>
-    {% for x in mymembers %}
+    {% for x in mymembers_adult %}
+      <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
+    {% endfor %}
+  </ul>
+
+
+  <h1>Members (Youth)</h1>
+  
+  <ul>
+    {% for x in mymembers_young %}
       <li><a href="details/{{ x.id }}">{{ x.firstname }} {{ x.lastname }}</a></li>
     {% endfor %}
   </ul>
