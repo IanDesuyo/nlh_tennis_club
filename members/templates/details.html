@@ -16,7 +16,10 @@
     <li><strong>User ID: </strong>{{ mymember.user }}</li>
     <li><strong>Phone: </strong>{{ mymember.phone }}</li>
     <li><strong>Member since: </strong>{{ mymember.joined_date }}</li>
-    <li><strong>Age: </strong>{{ mymember.age }}</li>  
+    <li><strong>Age: </strong>{{ mymember.age }}</li>
+    {% if mymember.image %}
+    <li><strong>Image: </strong><img src="/media/{{ mymember.image }}" /></li>
+    {% endif %}
   </ul>
   
 </div>  
