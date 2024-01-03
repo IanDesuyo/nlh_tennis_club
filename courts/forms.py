@@ -12,7 +12,7 @@ class BookingForm(forms.ModelForm):
         fields = ['user', 'court', 'date', 'reason']
 
         widgets = {
-            'user': forms.Select(attrs={'readonly': 'readonly'}),
+            'user': forms.Select(attrs={'readonly': True, 'style': 'pointer-events:none'}),
             # 'user': forms.TextInput(                
             #     attrs={'readonly': 'readonly'}),    # 文字框
             'court': forms.Select(),                # 下拉式選單
@@ -31,6 +31,6 @@ class BookingForm(forms.ModelForm):
     def clean_reason(self):
         print ('clean_reason is called')
         reason = self.cleaned_data.get('reason')
-        if len(reason) <= 10:
-            raise ValidationError(f'用途必須至少包含 10 個字元。目前只有 {len(reason)} 個字')
+        if len(reason) <= 2:
+            raise ValidationError(f'用途必須至少包含 2 個字元。目前只有 {len(reason)} 個字')
         return reason        

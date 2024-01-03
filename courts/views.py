@@ -34,7 +34,7 @@ def booking(request, court_id):
                 'court': court_id,
                 'user': request.user,
                 'date': date.today(),
-                'reason': '' }
+                'reason': '比賽用地' }
             booking_form = BookingForm(initial)
             context = {'booking_form': booking_form}
             return render(request, 'booking.html', context)
@@ -71,7 +71,7 @@ def my_bookings(request):
     for b in bookings:
         print (b)
     member = getMember(request)    
-    print ('member.firstname', member.firstname)
+    # print ('member.firstname', member.firstname)
     context = {'member': member,
                'bookings': bookings}
     return render(request, 'my_bookings.html', context)
